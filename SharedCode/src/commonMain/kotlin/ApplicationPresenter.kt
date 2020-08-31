@@ -3,7 +3,6 @@ package com.jetbrains.handson.mpp.mobile
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
-import com.soywiz.klock.*
 
 class ApplicationPresenter: ApplicationContract.Presenter() {
 
@@ -48,17 +47,10 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
             throw RuntimeException("Missing one of departure and arrival station")
         }
 
-        val currentDateTime = DateTime.now().plus(DateTimeSpan(minutes = 1))
-        val dateFormat = DateFormat("YYYY-MM-dd'T'HH:mm:ss.SSSXXX")
-        val url = "https://mobile-api-dev.lner.co.uk/v1/fares?" +
-                "originStation=$departureStation" +
-                "&destinationStation=$arrivalStation" +
-                "&numberOfAdults=1" +
-                "&journeyType=single" +
-                "&outboundDateTime=${currentDateTime.toString(dateFormat)}" +
-                "&outboundIsArriveBy=false"
+        val url =
+            "https://www.lner.co.uk/travel-information/travelling-now/live-train-times/depart" +
+                    "/$departureStation/$arrivalStation/#LiveDepResults"
 
-        println("URL: $url")
 
         view.openTrainTimesLink(url)
     }
