@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,28 +16,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvm-TJ-sDP">
-                                <rect key="frame" x="10" y="437.5" width="394" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrainBoard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvm-TJ-sDP">
+                                <rect key="frame" x="16" y="108" width="382" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select departure and arrival stations to view live train times" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocr-4V-IGl">
+                                <rect key="frame" x="16" y="178" width="382" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure station:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oft-HZ-e7y">
+                                <rect key="frame" x="16" y="257" width="382" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xQ-3P-zJq">
+                                <rect key="frame" x="16" y="284" width="382" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Oec-1b-ubd"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival station:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmX-PO-T7s">
+                                <rect key="frame" x="16" y="420" width="382" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJV-Nj-O0k">
+                                <rect key="frame" x="16" y="447" width="382" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="9Q6-HM-lZL"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LIR-Da-zHt">
+                                <rect key="frame" x="16" y="583" width="382" height="54"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                <state key="normal" title="Please select stations">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewTrainsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OaH-ib-VGt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bvm-TJ-sDP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="0EO-4s-M6m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bvm-TJ-sDP" secondAttribute="trailing" constant="10" id="XX7-VF-lgy"/>
-                            <constraint firstItem="Bvm-TJ-sDP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pPU-3m-Yf2"/>
+                            <constraint firstItem="UJV-Nj-O0k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1Iz-w0-Ilb"/>
+                            <constraint firstItem="Bvm-TJ-sDP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3TU-w2-cDu"/>
+                            <constraint firstItem="oft-HZ-e7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5L5-HA-1u3"/>
+                            <constraint firstItem="1xQ-3P-zJq" firstAttribute="top" secondItem="oft-HZ-e7y" secondAttribute="bottom" constant="8" id="6sG-vQ-DhX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LIR-Da-zHt" secondAttribute="trailing" constant="16" id="77U-65-GhP"/>
+                            <constraint firstItem="UJV-Nj-O0k" firstAttribute="top" secondItem="xmX-PO-T7s" secondAttribute="bottom" constant="8" id="842-4X-9wO"/>
+                            <constraint firstItem="xmX-PO-T7s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8ca-56-mVf"/>
+                            <constraint firstItem="LIR-Da-zHt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8rX-Tu-h1n"/>
+                            <constraint firstItem="oft-HZ-e7y" firstAttribute="top" secondItem="Ocr-4V-IGl" secondAttribute="bottom" constant="32" id="Cad-5F-fle"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bvm-TJ-sDP" secondAttribute="trailing" constant="16" id="DLC-eF-RFp"/>
+                            <constraint firstItem="1xQ-3P-zJq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="G8Z-6E-GI1"/>
+                            <constraint firstItem="LIR-Da-zHt" firstAttribute="top" secondItem="UJV-Nj-O0k" secondAttribute="bottom" constant="16" id="HGO-O8-Mm7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ocr-4V-IGl" secondAttribute="trailing" constant="16" id="IhK-8U-yJU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xmX-PO-T7s" secondAttribute="trailing" constant="16" id="aBe-xy-7zj"/>
+                            <constraint firstItem="1xQ-3P-zJq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="buE-kj-3wd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oft-HZ-e7y" secondAttribute="trailing" constant="16" id="dFr-Ka-YSt"/>
+                            <constraint firstItem="Ocr-4V-IGl" firstAttribute="top" secondItem="Bvm-TJ-sDP" secondAttribute="bottom" constant="32" id="e9B-mR-1J8"/>
+                            <constraint firstItem="Bvm-TJ-sDP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="i6q-19-bhh"/>
+                            <constraint firstItem="Ocr-4V-IGl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="p6o-BD-lAC"/>
+                            <constraint firstAttribute="trailing" secondItem="UJV-Nj-O0k" secondAttribute="trailing" constant="16" id="uOD-ln-l7g"/>
+                            <constraint firstItem="xmX-PO-T7s" firstAttribute="top" secondItem="1xQ-3P-zJq" secondAttribute="bottom" constant="16" id="vk2-Eu-GK2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="Bvm-TJ-sDP" id="0K4-VH-gLR"/>
+                        <outlet property="arrivalStationPicker" destination="UJV-Nj-O0k" id="xvZ-cb-slf"/>
+                        <outlet property="button" destination="LIR-Da-zHt" id="9sC-mD-oA1"/>
+                        <outlet property="departureStationPicker" destination="1xQ-3P-zJq" id="Yg0-JI-iut"/>
+                        <outlet property="instructionText" destination="Ocr-4V-IGl" id="Osl-1P-bZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+            <point key="canvasLocation" x="17" y="68"/>
         </scene>
     </scenes>
 </document>
