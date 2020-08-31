@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 interface ApplicationContract {
     interface View {
         fun setInstructionText(text: String)
-        fun setStations(stations: List<String>)
+        fun setStations(stations: List<Station>)
         fun updateButtonText(text: String)
         fun enableViewTrainsButton()
         fun disableViewTrainsButton()
@@ -14,8 +14,8 @@ interface ApplicationContract {
 
     abstract class Presenter: CoroutineScope {
         abstract fun onViewTaken(view: View)
-        abstract fun selectDepartureStation(text: String?)
-        abstract fun selectArrivalStation(text: String?)
+        abstract fun selectDepartureStation(station: Station?)
+        abstract fun selectArrivalStation(station: Station?)
         abstract fun viewTrainsButtonSelected()
     }
 }

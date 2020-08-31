@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
 
     private let presenter: ApplicationContractPresenter = ApplicationPresenter()
-    private var stations: [String] = ["sad"]
+    private var stations: [Station] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ extension ViewController: ApplicationContractView {
         instructionText.text = text
     }
 
-    func setStations(stations: [String]) {
+    func setStations(stations: [Station]) {
         self.stations = stations
     }
 
@@ -67,19 +67,19 @@ extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if row > 0{
-            return stations[row - 1]
+            return stations[row - 1].stationName
         } else {
             return ""
         }
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let stationName = row > 0 ? stations[row - 1] : ""
+        let station = row > 0 ? stations[row - 1] : nil
 
         if pickerView == departureStationPicker {
-            presenter.selectDepartureStation(text: stationName)
+            presenter.selectDepartureStation(station: station)
         } else {
-            presenter.selectArrivalStation(text: stationName)
+            presenter.selectArrivalStation(station: station)
         }
     }
 

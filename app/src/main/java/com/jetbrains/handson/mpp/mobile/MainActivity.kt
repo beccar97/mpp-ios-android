@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
     lateinit var presenter: ApplicationContract.Presenter
     private lateinit var viewTrainsButton: Button
-    private var stations: List<String> = emptyList()
+    private var stations: List<Station> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +30,17 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         findViewById<TextView>(R.id.spinner_instructions).text = text
     }
 
-    override fun setStations(stations: List<String>) {
+    override fun setStations(stations: List<Station>) {
         this.stations = stations
 
         val departureSpinner = findViewById<Spinner>(R.id.departure_station_spinner)
         val arrivalSpinner = findViewById<Spinner>(R.id.arrival_station_spinner)
 
         val adapter: ArrayAdapter<String> =
-            ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, stations)
+            ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_item,
+                listOf("") + stations.map { station -> "${station.stationCode} - ${station.stationName}" })
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
@@ -71,7 +74,11 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                presenter.selectDepartureStation(stations[position])
+                val selected = if (position > 0) {
+                    stations[position - 1]
+                } else null
+
+                presenter.selectDepartureStation(selected)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -84,7 +91,11 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                presenter.selectArrivalStation(stations[position])
+                val selected = if (position > 0) {
+                    stations[position - 1]
+                } else null
+
+                presenter.selectArrivalStation(selected)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
