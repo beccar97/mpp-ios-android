@@ -29,6 +29,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ApplicationContractView {
+
     func disableViewTrainsButton() {
         button.isEnabled = false
     }
@@ -67,7 +68,7 @@ extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if row > 0{
-            return stations[row - 1].stationName
+            return stations[row - 1].displayName
         } else {
             return ""
         }

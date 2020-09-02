@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
             ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_spinner_item,
-                listOf("") + stations.map { station -> "${station.stationCode} - ${station.stationName}" })
+                listOf("") + stations.map { station -> "${station.crs} - ${station.displayName}" })
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
