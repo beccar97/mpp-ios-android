@@ -1,6 +1,5 @@
 package com.jetbrains.handson.mpp.mobile
 
-import MyListAdapter
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,10 +19,18 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
         recyclerView = findViewById(R.id.my_recycler_view)
 
-        viewAdapter = MyListAdapter(listOf("item one", "item two"))
+        viewAdapter = MyListAdapter()
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = viewAdapter
+
+        val books = listOf(
+            Book("J.R.R. Tolkien", "The Fellowship of the Ring"),
+            Book("Douglas Adams", "The Hitchhiker's Guide to the Galaxy"),
+            Book("Hugh Howey", "Wool")
+        )
+
+        viewAdapter.updateList(books)
     }
 
     override fun setLabel(text: String) {
