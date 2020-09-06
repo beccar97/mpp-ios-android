@@ -61,13 +61,6 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
         }
 
         getLiveTrainTimes(departureStation, arrivalStation)
-
-        val url =
-            "https://www.lner.co.uk/travel-information/travelling-now/live-train-times/depart" +
-                    "/${departureStation.crs}/${arrivalStation.crs}/#LiveDepResults"
-
-
-        view.openTrainTimesLink(url)
     }
 
     private fun updateButton() {
@@ -134,8 +127,7 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
 
         launch {
             val trains = client.get<FareSearchResponse>(url)
-
-            println(trains)
+            view.setLiveTrainData(trains.outboundJourneys)
         }
     }
 }

@@ -10,6 +10,7 @@ interface ApplicationContract {
         fun enableViewTrainsButton()
         fun disableViewTrainsButton()
         fun openTrainTimesLink(url: String)
+        fun setLiveTrainData(trains: List<Journey>)
     }
 
     abstract class Presenter: CoroutineScope {

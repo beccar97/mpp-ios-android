@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
         liveTimesRecyclerView = findViewById(R.id.live_trains_recycler_view)
 
-        liveTimesAdapter = LiveTrainsAdapter(listOf("train 1", "train 2", "train 3"))
+        liveTimesAdapter = LiveTrainsAdapter()
 
         liveTimesRecyclerView.layoutManager = LinearLayoutManager(this)
         liveTimesRecyclerView.adapter = liveTimesAdapter
@@ -75,6 +75,10 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     override fun openTrainTimesLink(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
+    }
+
+    override fun setLiveTrainData(trains: List<Journey>) {
+        liveTimesAdapter.updateData(trains)
     }
 
     private fun setUpDropdowns() {
