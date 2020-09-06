@@ -102,4 +102,15 @@
         app:layout_constraintTop_toBottomOf="@id/arrival_station_spinner"
         tools:text="View trains from KGX to EDB" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/live_trains_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/view_trains_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

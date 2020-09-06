@@ -6,11 +6,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
     lateinit var presenter: ApplicationContract.Presenter
     private lateinit var viewTrainsButton: Button
     private var stations: List<Station> = emptyList()
+
+    private lateinit var liveTimesRecyclerView: RecyclerView
+    private lateinit var liveTimesAdapter: LiveTrainsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +27,13 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
         viewTrainsButton = findViewById(R.id.view_trains_button)
         viewTrainsButton.setOnClickListener { presenter.viewTrainsButtonSelected() }
+
+        liveTimesRecyclerView = findViewById(R.id.live_trains_recycler_view)
+
+        liveTimesAdapter = LiveTrainsAdapter(listOf("train 1", "train 2", "train 3"))
+
+        liveTimesRecyclerView.layoutManager = LinearLayoutManager(this)
+        liveTimesRecyclerView.adapter = liveTimesAdapter
 
         presenter.onViewTaken(this)
     }
