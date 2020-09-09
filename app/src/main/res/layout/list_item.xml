@@ -14,7 +14,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        tools:text="Hugh Howey"/>
+        tools:text="Hugh Howey" />
 
     <TextView
         android:id="@+id/title"
@@ -22,6 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textSize="20sp"
-        tools:text="Wool"/>
+        tools:text="Wool" />
 
 </LinearLayout>
